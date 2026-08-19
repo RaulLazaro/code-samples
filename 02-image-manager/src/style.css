@@ -1,0 +1,41 @@
+.container {
+  margin: 2rem auto;
+  max-width: fit-content;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  padding: 1rem;
+}
+
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table__image, .table__processed, .table__views {
+  text-align: center;
+}
+
+.table__comment {
+  width: 40rem;
+  text-align: left;
+}
+
+.table__views, .table__comment {
+  position: relative;
+  padding: 0;
+}
+
+.table__views > input, .table__comment > textarea{
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  text-align: inherit;
+  padding: 1rem;
+  resize: none;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+
+}

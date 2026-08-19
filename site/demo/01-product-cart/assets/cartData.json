@@ -1,0 +1,23 @@
+[
+    {
+        "code": "XJQK25",
+        "name": "Product 1",
+        "price": 20,
+        "photo": "assets/product-1.svg",
+        "quantity": 3
+    },
+    {
+        "code": "WPOY44",
+        "name": "Product 2",
+        "price": 5,
+        "photo": "assets/product-2.svg",
+        "quantity": 4
+    },
+    {
+        "code": "UTEV59",
+        "name": "Product 3",
+        "price": 10,
+        "photo": "assets/product-3.svg",
+        "quantity": 4
+    }
+]

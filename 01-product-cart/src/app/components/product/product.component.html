@@ -1,0 +1,20 @@
+<div class="col-product">
+    <figure class="product-image">
+        <img src={{product.photo}} />
+        <div class="product-description">
+            <h1>{{product.name}}</h1>
+            <p class="product-code">Product code {{product.code}}</p>
+        </div>
+    </figure>
+</div>
+<div class="col-quantity">
+    <button class="count" (click)="decrease()">-</button>
+<input type="number" class="product-quantity" name="quantity" #quantity [(ngModel)]="product.quantity" (ngModelChange)="setQuantity($event, quantity)"/>
+    <button class="count" (click)="add()">+</button>
+</div>
+<div class="col-price">
+    <span class="product-price">{{product.price}}</span><span class="product-currency currency">€</span>
+</div>
+<div class="col-total">
+    <span class="product-price">{{product.price * product.quantity}}</span><span class="product-currency currency">€</span>
+</div>

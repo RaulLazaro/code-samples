@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Product Cart — Angular 8</title>
+  <base href="/demo/01-product-cart/">  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    .reset-demo {
+      position: fixed; right: 16px; bottom: 16px; z-index: 9999;
+      font: 13px/1 system-ui, sans-serif; color: #1b1f23; background: #fff;
+      border: 1px solid #d0d7de; border-radius: 999px; padding: 8px 14px;
+      cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    }
+    .reset-demo:hover { border-color: #0969da; color: #0969da; }
+  </style>
+<link rel="stylesheet" href="styles.ca4a8cccae611762c067.css"></head>
+<body>
+  <app-root></app-root>
+  <button class="reset-demo" type="button" id="reset-demo">Reset demo</button>
+  <script>
+    document.getElementById('reset-demo').addEventListener('click', function () {
+      localStorage.removeItem('cartData')
+      location.reload()
+    })
+  </script>
+<script src="runtime-es2015.c5fa8325f89fc516600b.js" type="module"></script><script src="runtime-es5.c5fa8325f89fc516600b.js" nomodule defer></script><script src="polyfills-es5.3e8196928d184a6e5319.js" nomodule defer></script><script src="polyfills-es2015.5b10b8fd823b6392f1fd.js" type="module"></script><script src="main-es2015.bc45f50387b331895cc5.js" type="module"></script><script src="main-es5.bc45f50387b331895cc5.js" nomodule defer></script></body>
+</html>

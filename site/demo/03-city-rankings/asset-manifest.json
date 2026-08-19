@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/demo/03-city-rankings/static/js/main.77142180.js",
+    "static/js/453.7c322d1e.chunk.js": "/demo/03-city-rankings/static/js/453.7c322d1e.chunk.js",
+    "static/media/globe.svg": "/demo/03-city-rankings/static/media/globe.4267ce2cdf958c38be808535a2f25a36.svg",
+    "index.html": "/demo/03-city-rankings/index.html",
+    "main.77142180.js.map": "/demo/03-city-rankings/static/js/main.77142180.js.map",
+    "453.7c322d1e.chunk.js.map": "/demo/03-city-rankings/static/js/453.7c322d1e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.77142180.js"
+  ]
+}

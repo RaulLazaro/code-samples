@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build artifacts — NOTE: dist/ is intentionally committed for static deploy.
+# Do NOT add dist/ to this file. Only ignore per-build junk that should not be versioned.
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Worktrees / internal
+.worktrees/
+
+# Environment
+.env
+.env.local
+.env.*.local
+.hermes/

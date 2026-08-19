@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/demo/04-grouped-tasks/static/css/main.bc863c0e.css",
+    "main.js": "/demo/04-grouped-tasks/static/js/main.62a3f4dc.js",
+    "static/js/453.bb5047bd.chunk.js": "/demo/04-grouped-tasks/static/js/453.bb5047bd.chunk.js",
+    "static/media/SourceSansPro-Regular.ttf": "/demo/04-grouped-tasks/static/media/SourceSansPro-Regular.df87f53caf449a3b7572.ttf",
+    "static/media/SourceSansPro-SemiBold.ttf": "/demo/04-grouped-tasks/static/media/SourceSansPro-SemiBold.f2fa8f369db189665539.ttf",
+    "static/media/SourceSansPro-Bold.ttf": "/demo/04-grouped-tasks/static/media/SourceSansPro-Bold.2dec2f24e3bdf2c6862e.ttf",
+    "static/media/booking-ok.svg": "/demo/04-grouped-tasks/static/media/booking-ok.e90eba6e8d672d6df301234566d620ab.svg",
+    "static/media/booking.svg": "/demo/04-grouped-tasks/static/media/booking.d6ede555e6c2546cd75b14e8b4221b8d.svg",
+    "index.html": "/demo/04-grouped-tasks/index.html",
+    "static/media/arrow-down.svg": "/demo/04-grouped-tasks/static/media/arrow-down.43b1605ea7315fe8f3f88626e0af6ccb.svg",
+    "static/media/arrow-up.svg": "/demo/04-grouped-tasks/static/media/arrow-up.98d852227bc7cc69ad68788d5188f2d4.svg",
+    "static/media/check.svg": "/demo/04-grouped-tasks/static/media/check.3a28181e36bf53574bf7b4a4a95a52f9.svg",
+    "main.bc863c0e.css.map": "/demo/04-grouped-tasks/static/css/main.bc863c0e.css.map",
+    "main.62a3f4dc.js.map": "/demo/04-grouped-tasks/static/js/main.62a3f4dc.js.map",
+    "453.bb5047bd.chunk.js.map": "/demo/04-grouped-tasks/static/js/453.bb5047bd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc863c0e.css",
+    "static/js/main.62a3f4dc.js"
+  ]
+}

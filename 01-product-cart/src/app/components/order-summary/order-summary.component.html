@@ -1,0 +1,24 @@
+<h1 class="main">Order Summary</h1>
+<ul class="summary-items wrapper border">
+	<li>
+		<span class="summary-items-number">Total items</span>
+		<span class="summary-items-quantity">{{totalQuantity}}</span>
+	</li>
+</ul>
+<div class="summary-total wrapper">
+	<ul>
+		<li>
+			<span class="summary-total-cost">Total cost</span>
+			<span class="summary-total-price">{{totalCost}}€</span>
+		</li>
+	</ul>
+	<button type="submit" (click)="openModal('checkout')">Checkout</button>
+</div>
+
+<app-modal id="checkout">
+	<h1>Thank you for your purchase.</h1>
+	<br>
+	<p>See you soon!</p>
+	<br>
+	<button (click)="closeModal('checkout')">Close</button>
+</app-modal>

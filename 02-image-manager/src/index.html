@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Manager — Webpack, ES6</title>
+    <style>
+      .reset-demo {
+        position: fixed; right: 16px; bottom: 16px; z-index: 9999;
+        font: 13px/1 system-ui, sans-serif; color: #1b1f23; background: #fff;
+        border: 1px solid #d0d7de; border-radius: 999px; padding: 8px 14px;
+        cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.1);
+      }
+      .reset-demo:hover { border-color: #0969da; color: #0969da; }
+    </style>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <button class="reset-demo" type="button" id="reset-demo">Reset demo</button>
+    <script data-cfasync="false">
+      document.getElementById('reset-demo').addEventListener('click', () => {
+        if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+          navigator.serviceWorker.controller.postMessage({ type: 'RESET' })
+          setTimeout(() => location.reload(), 150)
+        } else {
+          location.reload()
+        }
+      })
+    </script>
+  </body>
+</html>
