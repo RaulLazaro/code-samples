@@ -42,9 +42,17 @@
     </style>
     <script data-cfasync="false">
       document.getElementById('reset-demo').addEventListener('click', () => {
+        const swKey = 'sw-primed:' + location.pathname.replace(/\/index\.html$/, '/');
+        sessionStorage.removeItem(swKey);
         if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
           navigator.serviceWorker.controller.postMessage({ type: 'RESET' })
-          setTimeout(() => location.reload(), 150)
+          navigator.serviceWorker.addEventListener('message', function onMsg(e) {
+            if (e.data && e.data.type === 'RESET_DONE') {
+              navigator.serviceWorker.removeEventListener('message', onMsg);
+              location.reload();
+            }
+          });
+          setTimeout(() => location.reload(), 1000)
         } else {
           location.reload()
         }

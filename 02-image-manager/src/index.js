@@ -7,6 +7,8 @@ import ImageList from "./ImageList/ImageList";
 // The in-browser mock backend is a service worker. On the very first visit the
 // page is not yet controlled by it, so we register, wait until it's active and
 // reload once if needed. Subsequent visits are served straight from the mock.
+const SW_KEY = "sw-primed:" + location.pathname.replace(/\/index\.html$/, "/");
+
 const ensureServiceWorker = async () => {
   if (!("serviceWorker" in navigator)) return;
 
@@ -14,8 +16,8 @@ const ensureServiceWorker = async () => {
     await navigator.serviceWorker.register("./sw.js");
     await navigator.serviceWorker.ready;
 
-    if (!navigator.serviceWorker.controller && !sessionStorage.getItem("sw-primed")) {
-      sessionStorage.setItem("sw-primed", "1");
+    if (!navigator.serviceWorker.controller && !sessionStorage.getItem(SW_KEY)) {
+      sessionStorage.setItem(SW_KEY, "1");
       window.location.reload();
     }
   } catch (error) {
