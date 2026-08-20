@@ -19,13 +19,28 @@ const ensureServiceWorker = async () => {
     await navigator.serviceWorker.register(`${process.env.PUBLIC_URL}/sw.js`)
     await navigator.serviceWorker.ready
 
-    if (
-      !navigator.serviceWorker.controller &&
-      !sessionStorage.getItem(SW_KEY)
-    ) {
+    // If the SW is already controlling, we're done.
+    if (navigator.serviceWorker.controller) {
+      sessionStorage.removeItem(SW_KEY)
+      return
+    }
+
+    // SW registered + ready but not yet controlling. Either reload once
+    // (first visit) or wait for the controllerchange event (post-reset).
+    if (!sessionStorage.getItem(SW_KEY)) {
       sessionStorage.setItem(SW_KEY, '1')
       window.location.reload()
+      return
     }
+
+    // After a reset/reload: wait up to 3s for the SW to claim the page.
+    await new Promise((resolve) => {
+      const timeout = setTimeout(resolve, 3000)
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        clearTimeout(timeout)
+        resolve()
+      }, { once: true })
+    })
   } catch (error) {
     console.error('SW registration failed', error)
   }
