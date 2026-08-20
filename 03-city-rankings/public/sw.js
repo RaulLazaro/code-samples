@@ -166,6 +166,10 @@ self.addEventListener('activate', (event) => {
 })
 
 self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'CLAIM') {
+    self.clients.claim()
+    event.source?.postMessage({ type: 'CLAIM_DONE' })
+  }
   if (event.data && event.data.type === 'RESET') {
     resetData().then(() => {
       event.source?.postMessage({ type: 'RESET_DONE' })
