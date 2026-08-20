@@ -15,25 +15,17 @@ const ensureServiceWorker = async () => {
   try {
     await navigator.serviceWorker.register("./sw.js");
     await navigator.serviceWorker.ready;
+    sessionStorage.removeItem(SW_KEY);
 
-    if (navigator.serviceWorker.controller) {
-      sessionStorage.removeItem(SW_KEY);
-      return;
+    if (!navigator.serviceWorker.controller) {
+      await new Promise((resolve) => {
+        const timeout = setTimeout(resolve, 3000);
+        navigator.serviceWorker.addEventListener("controllerchange", () => {
+          clearTimeout(timeout);
+          resolve();
+        }, { once: true });
+      });
     }
-
-    if (!sessionStorage.getItem(SW_KEY)) {
-      sessionStorage.setItem(SW_KEY, "1");
-      window.location.reload();
-      return;
-    }
-
-    await new Promise((resolve) => {
-      const timeout = setTimeout(resolve, 3000);
-      navigator.serviceWorker.addEventListener("controllerchange", () => {
-        clearTimeout(timeout);
-        resolve();
-      }, { once: true });
-    });
   } catch (error) {
     console.error("SW registration failed", error);
   }
