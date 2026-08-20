@@ -16,16 +16,25 @@ const ensureServiceWorker = async () => {
   if (!('serviceWorker' in navigator)) return
 
   try {
-    await navigator.serviceWorker.register(`${process.env.PUBLIC_URL}/sw.js`)
+    const reg = await navigator.serviceWorker.register(`${process.env.PUBLIC_URL}/sw.js`)
     await navigator.serviceWorker.ready
 
-    if (
-      !navigator.serviceWorker.controller &&
-      !sessionStorage.getItem(SW_KEY)
-    ) {
-      sessionStorage.setItem(SW_KEY, '1')
-      window.location.reload()
+    if (navigator.serviceWorker.controller) {
+      sessionStorage.removeItem(SW_KEY)
+      return
     }
+
+    if (reg.active) {
+      reg.active.postMessage({ type: 'CLAIM' })
+    }
+
+    await new Promise((resolve) => {
+      const timeout = setTimeout(resolve, 3000)
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        clearTimeout(timeout)
+        resolve()
+      }, { once: true })
+    })
   } catch (error) {
     console.error('SW registration failed', error)
   }

@@ -27,6 +27,10 @@ self.addEventListener("activate", (event) => {
 // Reset support: reload the original dataset so the demo returns to its
 // initial state without touching any app logic.
 self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "CLAIM") {
+    self.clients.claim();
+    event.source?.postMessage({ type: "CLAIM_DONE" });
+  }
   if (event.data && event.data.type === "RESET") {
     fetch(DATA_URL)
       .then((r) => r.json())
