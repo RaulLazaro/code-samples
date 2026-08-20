@@ -10,6 +10,8 @@ import GlobalStyles from './GlobalStyles'
 // The in-browser mock backend lives in a service worker. On the first visit the
 // page isn't controlled by it yet, so wait until it's active and reload once if
 // needed before mounting — otherwise the SSE stream would hit the network.
+const SW_KEY = 'sw-primed:' + location.pathname.replace(/\/index\.html$/, '/')
+
 const ensureServiceWorker = async () => {
   if (!('serviceWorker' in navigator)) return
 
@@ -19,9 +21,9 @@ const ensureServiceWorker = async () => {
 
     if (
       !navigator.serviceWorker.controller &&
-      !sessionStorage.getItem('sw-primed')
+      !sessionStorage.getItem(SW_KEY)
     ) {
-      sessionStorage.setItem('sw-primed', '1')
+      sessionStorage.setItem(SW_KEY, '1')
       window.location.reload()
     }
   } catch (error) {
