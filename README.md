@@ -1,6 +1,6 @@
 # Code Samples
 
-A collection of anonymized front-end and full-stack technical challenges I've
+A collection of front-end and full-stack technical challenges I've
 completed over the years. Each folder is a self-contained demo that deploys as
 static files — any original Express backend has been replaced by an in-browser
 mock, so every demo runs fully static with zero servers.
